@@ -1,6 +1,35 @@
 <h1>My Jb Component! -- {{ title() }}</h1>
 <button [disabled]="isChangeDisabled()" (click)="changeTitle()">Click me</button>
-<div>
-    {{value()}}
-    <button (click)="plus()">+</button>
+<div> {{value()}} <button (click)="plus()">+</button>
 </div>
+
+<div>
+    @switch (value()) {
+        @case (1){
+            <div> One</div>
+        }
+        @case(2) {
+            <div> Two</div>
+        }
+        @default {
+            <div>Another number</div>           
+        }
+    }
+</div>
+
+<button (click)="toggleMyPanel()">Toggle my pannel</button>
+<div> @if(isMyPanelVisible()) { <app-my-panel></app-my-panel> } @else { <div>My panel is hidden</div> } </div>
+<!-- <div> {{names()}} </div> -->
+
+<!-- <div>
+    <ul>
+        @for(name of names(); track name)
+        {
+            <li>{{name}}</li>
+        }
+
+    </ul>
+</div>
+ -->
+
+
