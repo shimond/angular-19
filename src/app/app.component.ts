@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { JbComponentComponent } from './components/jb-component/jb-component.component'; // without ts suffix
+import { UseDirectviesComponent } from "./components/use-directvies/use-directvies.component"; // without ts suffix
 
 @Component({
   selector: 'app-root',
-  imports: [JbComponentComponent],
+  imports: [UseDirectviesComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

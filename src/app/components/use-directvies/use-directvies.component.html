@@ -1,0 +1,5 @@
+<h2>My Numbers</h2>
+@for(x of numbers(); track x)
+{
+    <div [ngStyle]="{color: x % 2 == 0 ? 'green' : 'red', 'background-color': x > 10 ? 'black' :''}">{{x}}</div>
+}
