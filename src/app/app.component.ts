@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { JbComponentComponent } from './components/jb-component/jb-component.component'; // without ts suffix
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [JbComponentComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'first-app';
 }
+
