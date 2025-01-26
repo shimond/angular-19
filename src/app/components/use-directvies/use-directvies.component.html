@@ -1,5 +1,9 @@
-<h2>My Numbers</h2>
-@for(x of numbers(); track x)
-{
-    <div [ngStyle]="{color: x % 2 == 0 ? 'green' : 'red', 'background-color': x > 10 ? 'black' :''}">{{x}}</div>
-}
+<h2>My Numbers</h2> @for(x of numbers(); track x) {
+<!-- <div [ngStyle]="{color: x % 2 == 0 ? 'green' : 'red', 'background-color': x > 10 ? 'black' :''}">{{x}}</div> -->
+<div [ngClass]="{odd: x % 2 == 1, even: x % 2 == 0}">{{x}}</div> } <h2>Colors</h2>
+<div>
+    @for(colorValue of colors(); track colorValue) 
+    { 
+        <div [ngStyle]="{color:colorValue}">{{colorValue}}</div> 
+    }
+ </div>

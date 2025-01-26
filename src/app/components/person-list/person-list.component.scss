@@ -1,0 +1,27 @@
+.people-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0;
+    list-style: none;
+    gap:24px;
+
+    .person {
+        cursor: pointer;
+        padding: 4px;
+        border: 1px solid black;
+        border-radius: 5px;
+        &.special {
+            background-color: lightblue;
+        }
+        &.selected
+        {
+            background-color: lightgreen;
+            font-weight: bold;
+            border: 2px solid green;
+        }
+        .person-name {
+            font-weight: bold;
+        }
+    }
+}
