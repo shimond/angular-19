@@ -5,7 +5,7 @@ import { CurrencyPipe, DatePipe, LowerCasePipe, UpperCasePipe } from '@angular/c
 
 @Component({
   selector: 'app-root',
-  imports: [PersonListComponent, LowerCasePipe, UpperCasePipe, CurrencyPipe, DatePipe],
+  imports: [PersonListComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
