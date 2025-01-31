@@ -1,0 +1,53 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "John Cohen",
+            "email": "jc@gmail.com",
+            "birthdate": "1954-05-04",
+            "type": "Employee"
+        },
+        {
+            "id": 2,
+            "name": "Jane Doe",
+            "email": "Jd@gmail.com",
+            "birthdate": "1990-02-15",
+            "type": "Customer"
+        },
+        {
+            "id": 3,
+            "name": "David Levi",
+            "email": "Dl@gmail.com",
+            "birthdate": "1980-12-25",
+            "type": "Customer"
+        },
+        {
+            "id": 4,
+            "name": "Tikva Cohen",
+            "email": "tc@gmail.com",
+            "birthdate": "1995-05-04",
+            "type": "Employee"
+        },
+        {
+            "id": 5,
+            "name": "Shimon Levi",
+            "email": "sl@gmail.com",
+            "birthdate": "1975-02-15",
+            "type": "Employee"
+        },
+        {
+            "id": 6,
+            "name": "Namma Dahan",
+            "email": "Nd@gmail.com",
+            "birthdate": "1980-12-25",
+            "type": "Customer"
+        },
+        {
+            "id": 7,
+            "name": "Moshe Lavi",
+            "email": "ml@gmail.com",
+            "birthdate": "2005-05-04",
+            "type": "Employee"
+        }
+    ]
+}

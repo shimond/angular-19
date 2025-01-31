@@ -18,8 +18,8 @@ export class PeoplePageComponent implements OnDestroy {
   customers = signal<Person[]>([]);
 
   constructor() {
-    this.employees.set(this.#peopleApiService.getEmployees());
-    this.customers.set(this.#peopleApiService.getCustomers());
+    this.#peopleApiService.getEmployees().subscribe(employees => this.employees.set(employees));
+    this.#peopleApiService.getCustomers().subscribe(customers => this.customers.set(customers));
   }
 
   ngOnDestroy(): void {

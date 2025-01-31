@@ -1,33 +1,32 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Person } from '../models/person.model';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PeopleApiService {
 
-  getEmployees(): Person[] {
-    return [
-      { id: 1, name: 'John Cohen', email: 'jc@gmail.com', birthdate: new Date('1954-05-04') },
-      { id: 2, name: 'Jane Doe', email: 'Jd@gmail.com', birthdate: new Date('1990-02-15') },
-      { id: 3, name: 'David Levi', email: 'Dl@gmail.com', birthdate: new Date('1980-12-25') },
-      { id: 4, name: 'Tikva Cohen', email: 'tc@gmail.com', birthdate: new Date('1995-05-04') }
-    ]
+  #baseUrl = 'http://localhost:3000';
+
+  #httpClient = inject(HttpClient);
+
+  getAll(): Observable<Person[]> {
+    const url = `${this.#baseUrl}/users`;
+    return this.#httpClient.get<Person[]>(url);
   }
 
-  getCustomers(): Person[] {
-    return [
-      { id: 5, name: 'Shimon Levi', email: 'sl@gmail.com', birthdate: new Date('1975-02-15') },
-      { id: 6, name: 'Namma Dahan', email: 'Nd@gmail.com', birthdate: new Date('1980-12-25') },
-      { id: 7, name: 'Moshe Lavi', email: 'ml@gmail.com', birthdate: new Date('2005-05-04') }]
+  getEmployees(): Observable<Person[]> {
+    const url = `${this.#baseUrl}/users?type=Employee`;
+    return this.#httpClient.get<Person[]>(url);
+
   }
 
-  constructor() {
-    console.log('PeopleApiService created');
+  getCustomers(): Observable<Person[]> {
+    const url = `${this.#baseUrl}/users?type=Customer`;
+    return this.#httpClient.get<Person[]>(url);
   }
 
-  ngOnDestroy(): void {
-    console.log('PeopleApiService destroyed');
-  }
 }
 
