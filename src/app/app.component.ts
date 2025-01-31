@@ -2,7 +2,7 @@ import { Component, signal } from '@angular/core';
 import { CounterComponent } from "./components/counter/counter.component";
 import { PersonListComponent } from "./components/person-list/person-list.component";
 import { Person } from './models/person.model';
-import { GetPeopleApiService, PeopleApiService } from './services/people-api.service';
+import { PeopleApiService } from './services/people-api.service';
 
 @Component({
   selector: 'app-root',
@@ -12,17 +12,18 @@ import { GetPeopleApiService, PeopleApiService } from './services/people-api.ser
 })
 export class AppComponent {
 
-  #peopleApiService: PeopleApiService = GetPeopleApiService();
+
+  constructor(private peopleApiService: PeopleApiService) {
+    this.employees.set(this.peopleApiService.getEmployees());
+    this.customers.set(this.peopleApiService.getCustomers());
+  }
 
   employees = signal<Person[]>([]);
   customers = signal<Person[]>([]);
 
-  constructor() {
-    this.employees.set(this.#peopleApiService.getEmployees());
-    this.customers.set(this.#peopleApiService.getCustomers());
-  }
-
+  
   onButtonClick(e: any) {
+    //this.peopleApiService
     console.log('Button was clicked', e);
   }
 
