@@ -22,9 +22,7 @@ export class PeopleApiServiceMock {
 }
 
 @Injectable({
-  providedIn: 'root',
-  //useClass: PeopleApiServiceMock
-  //useValue: { getEmployees: () => [], getCustomers: () => [] }
+  providedIn: 'root'
 })
 export class PeopleApiService {
 
