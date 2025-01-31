@@ -1,1 +1,7 @@
-<app-counter></app-counter>
+<button (click)="onButtonClick($event)">Click me</button>
+
+
+<app-person-list listTitle="Employees" [people]="employees()"></app-person-list>
+<hr>
+<app-person-list listTitle="Customers" [people]="customers()"></app-person-list>
+

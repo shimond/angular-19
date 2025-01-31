@@ -1,0 +1,7 @@
+<div class="person"
+     (click)="onPersonClick()"
+     [ngClass]="{special:person().birthdate.getFullYear() >= 2000, selected:isSelected()}">
+    <div class="person-name">{{person().name}}</div>
+    <div>{{person().email}}</div>
+    <div>{{person().birthdate | date:'MMM yyyy'}}</div>
+</div>
