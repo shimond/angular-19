@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CounterComponent } from "./components/counter/counter.component";
 import { PersonListComponent } from "./components/person-list/person-list.component";
 import { Person } from './models/person.model';
@@ -13,12 +13,15 @@ import { PeoplePageComponent } from "./pages/people-page/people-page.component";
 })
 export class AppComponent {
 
+  #peopleApiService = inject(PeopleApiService);
+  arr = signal([1]);
 
-  
-  onButtonClick(e: any) {
-    //this.peopleApiService
-    console.log('Button was clicked', e);
+  addItem() {
+    this.arr.update(current => [...current, current.length + 1]);
   }
 
+  removeItem(item: number) {
+    this.arr.update(current => current.filter(i => i != item));
+  }
 }
 

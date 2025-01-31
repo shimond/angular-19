@@ -1,4 +1,7 @@
-<app-people-page></app-people-page>
-<app-people-page></app-people-page>
-<app-people-page></app-people-page>
-<app-people-page></app-people-page>
+<button (click)="addItem()">Add item</button>
+
+@for(item of arr(); track item) 
+{ 
+    <app-people-page></app-people-page>
+    <button (click)="removeItem(item)">Remove item</button>
+}

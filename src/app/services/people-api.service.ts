@@ -1,26 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Person } from '../models/person.model';
 
-
-@Injectable()
-export class PeopleApiServiceMock {
-
-  getEmployees(): Person[] {
-    return [
-      { id: 4, name: 'Tikva Cohen', email: 'tc@gmail.com', birthdate: new Date('1995-05-04') }
-    ]
-  }
-
-  getCustomers(): Person[] {
-    return [
-      { id: 7, name: 'Moshe Lavi', email: 'ml@gmail.com', birthdate: new Date('2005-05-04') }]
-  }
-
-  constructor() {
-    console.log('PeopleApiServiceMock created');
-  }
-}
-
 @Injectable({
   providedIn: 'root'
 })
@@ -44,6 +24,10 @@ export class PeopleApiService {
 
   constructor() {
     console.log('PeopleApiService created');
+  }
+
+  ngOnDestroy(): void {
+    console.log('PeopleApiService destroyed');
   }
 }
 

@@ -1,6 +1,7 @@
 import { DatePipe, NgClass } from '@angular/common';
-import { Component, input, output, signal } from '@angular/core';
+import { Component, inject, input, output } from '@angular/core';
 import { Person } from '../../models/person.model';
+import { PeopleApiService } from '../../services/people-api.service';
 
 @Component({
   selector: 'app-person-item',
@@ -12,8 +13,10 @@ export class PersonItemComponent {
   person = input.required<Person>();
   isSelected = input<boolean>(false);
   personClick = output<Person>();
+  personApiService = inject(PeopleApiService);
 
-  onPersonClick(){
+
+  onPersonClick() {
     this.personClick.emit(this.person());
   }
 }
