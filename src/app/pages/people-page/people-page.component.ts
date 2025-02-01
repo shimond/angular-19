@@ -2,27 +2,21 @@ import { Component, inject, OnDestroy, signal } from '@angular/core';
 import { PeopleApiService } from '../../services/people-api.service';
 import { Person } from '../../models/person.model';
 import { PersonListComponent } from "../../components/person-list/person-list.component";
+import { PeoplePageStore } from './people-page-store.service';
 
 @Component({
   selector: 'app-people-page',
   imports: [PersonListComponent],
   templateUrl: './people-page.component.html',
-  styleUrl: './people-page.component.scss',
-  providers: [{ provide: PeopleApiService, useClass: PeopleApiService }]
+  styleUrl: './people-page.component.scss'
 })
-export class PeoplePageComponent implements OnDestroy {
+export class PeoplePageComponent  {
 
-  #peopleApiService = inject(PeopleApiService);
-
-  employees = signal<Person[]>([]);
-  customers = signal<Person[]>([]);
-
+  state = inject(PeoplePageStore);  
+  
   constructor() {
-    this.#peopleApiService.getEmployees().subscribe(employees => this.employees.set(employees));
-    this.#peopleApiService.getCustomers().subscribe(customers => this.customers.set(customers));
+    this.state.init();
   }
 
-  ngOnDestroy(): void {
-    console.log('PeoplePageComponent destroyed');
-  }
+ 
 }

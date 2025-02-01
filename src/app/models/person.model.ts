@@ -3,4 +3,5 @@ export interface Person {
     readonly name: string;
     readonly email:string;
     readonly birthdate: Date;
+    readonly type: 'Employee' | 'Customer';
 }

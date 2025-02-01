@@ -1,18 +1,19 @@
 .person {
     cursor: pointer;
-    padding: 4px;
-    border: 1px solid black;
-    border-radius: 5px;
+    padding: 20px;
+
     &.special {
         background-color: lightblue;
     }
-    &.selected
-    {
+
+    &.selected {
         background-color: lightgreen;
         font-weight: bold;
         border: 2px solid green;
     }
-    .person-name {
-        font-weight: bold;
+
+    .actions {
+        display: flex;
+        flex-direction: row-reverse;
     }
 }

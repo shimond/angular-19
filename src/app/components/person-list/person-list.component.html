@@ -8,6 +8,7 @@
 <div class="people-list">
      @for(person of people(); track person.id) { 
         <app-person-item [person]="person" (personClick)="selectPerson($event)"
+            (deleteClick)="deletePerson($event)"
             [isSelected]="selectedPerson()?.id === person.id"
         ></app-person-item>
 } </div>

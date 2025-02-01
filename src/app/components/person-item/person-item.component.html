@@ -1,7 +1,16 @@
-<div class="person"
-     (click)="onPersonClick()"
-     [ngClass]="{selected:isSelected()}">
-    <div class="person-name">{{person().name}}</div>
-    <div>{{person().email}}</div>
-    <div>{{person().birthdate | date:'MMM yyyy'}}</div>
-</div>
+<mat-card appearance="outlined" (click)="onPersonClick()" [ngClass]="{selected:isSelected()}" class="person">
+    <mat-card-header>
+        <mat-card-title>{{person().name}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div>{{person().email}}</div>
+        <div>{{person().birthdate | date:'MMM yyyy'}}</div>
+    </mat-card-content>
+    <mat-card-footer class="example-card-footer">
+        <div class="actions">
+            <button mat-fab (click)="oneDeleteClick($event)">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+    </mat-card-footer>
+</mat-card>

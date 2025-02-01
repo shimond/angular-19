@@ -28,5 +28,10 @@ export class PeopleApiService {
     return this.#httpClient.get<Person[]>(url);
   }
 
+  deletePerson(id: number): Observable<void> {
+    const url = `${this.#baseUrl}/users/${id}`;
+    return this.#httpClient.delete<void>(url);
+  }
+
 }
 
