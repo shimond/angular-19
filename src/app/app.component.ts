@@ -8,7 +8,7 @@ import { UpsertPersonComponent } from "./components/upsert-person/upsert-person.
 
 @Component({
   selector: 'app-root',
-  imports: [UpsertPersonComponent],
+  imports: [UpsertPersonComponent, PeoplePageComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

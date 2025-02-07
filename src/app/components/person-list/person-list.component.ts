@@ -4,10 +4,11 @@ import { DatePipe, NgClass } from '@angular/common';
 import { PersonItemComponent } from '../person-item/person-item.component';
 import { PeopleApiService } from '../../services/people-api.service';
 import { PeoplePageStore } from '../../pages/people-page/people-page-store.service';
+import { UpsertPersonComponent } from "../upsert-person/upsert-person.component";
 
 @Component({
   selector: 'app-person-list',
-  imports: [PersonItemComponent],
+  imports: [PersonItemComponent, UpsertPersonComponent],
   templateUrl: './person-list.component.html',
   styleUrl: './person-list.component.scss'
 })

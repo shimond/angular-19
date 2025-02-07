@@ -5,6 +5,9 @@
     <div>{{selected.email}}</div> 
 }
 </div>
+<div>
+    <app-upsert-person></app-upsert-person>
+</div>
 <div class="people-list">
      @for(person of people(); track person.id) { 
         <app-person-item [person]="person" (personClick)="selectPerson($event)"
