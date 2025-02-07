@@ -1,0 +1,15 @@
+<div class="container">
+    <div>
+        <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input [formControl]="nameField" matInput />
+        </mat-form-field>
+        <div>
+            <pre>{{nameField.errors | json}}</pre>
+        </div>
+    </div>
+    <div> Current value = {{nameField.value}} </div>
+    <button mat-raised-button (click)="changeToDisable()">Disable input</button>
+    <button mat-raised-button (click)="changeToEnable()">Enable input</button>
+
+</div>

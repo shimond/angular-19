@@ -4,10 +4,11 @@ import { PersonListComponent } from "./components/person-list/person-list.compon
 import { Person } from './models/person.model';
 import { PeopleApiService } from './services/people-api.service';
 import { PeoplePageComponent } from "./pages/people-page/people-page.component";
+import { UpsertPersonComponent } from "./components/upsert-person/upsert-person.component";
 
 @Component({
   selector: 'app-root',
-  imports: [PeoplePageComponent],
+  imports: [UpsertPersonComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
