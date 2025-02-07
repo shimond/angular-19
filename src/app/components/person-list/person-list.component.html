@@ -1,13 +1,5 @@
 <h2>{{listTitle()}} ({{people().length}})</h2>
-<div> @if(selectedPerson(); as selected) { 
-    <h2>Selected person:</h2>
-    <div>{{selected.name}}</div>
-    <div>{{selected.email}}</div> 
-}
-</div>
-<div>
-    <app-upsert-person></app-upsert-person>
-</div>
+
 <div class="people-list">
      @for(person of people(); track person.id) { 
         <app-person-item [person]="person" (personClick)="selectPerson($event)"
@@ -15,3 +7,8 @@
             [isSelected]="selectedPerson()?.id === person.id"
         ></app-person-item>
 } </div>
+
+@if(selectedPerson() ; as selected)
+{
+    <app-upsert-person (saveClick)="updatePerson($event)" [person]="selected"></app-upsert-person>
+}

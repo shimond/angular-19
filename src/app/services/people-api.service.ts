@@ -33,5 +33,9 @@ export class PeopleApiService {
     return this.#httpClient.delete<void>(url);
   }
 
+  UpdatePerson(person: Person): Observable<Person> {
+    const url = `${this.#baseUrl}/users/${person.id}`;
+    return this.#httpClient.put<Person>(url, person);
+  }
 }
 

@@ -23,8 +23,6 @@ export class PeoplePageStore {
 
     deletePerson(person: Person){
         this.#peopleApiService.deletePerson(person.id).subscribe(() => {
-            // refresh all
-            // remove specific person from the list
             if(person.type == 'Employee')
             {
                 this.#employees.update(list => list.filter(p => p.id != person.id));
@@ -32,6 +30,33 @@ export class PeoplePageStore {
             else{
                 this.#customers.update(list => list.filter(p => p.id != person.id));
             }
+        });
+    }
+
+    updateUpdate(person:Person)
+    {
+        this.#peopleApiService.UpdatePerson(person).subscribe(result=>{
+            if(person.type == 'Employee')
+                {
+                    this.#employees.update(list => list.map(p => 
+                    {
+                        if(p.id !== person.id)
+                        {
+                            return p;
+                        }
+                        return person;
+                    }));
+                }
+                else{
+                    this.#customers.update(list => list.map(p => 
+                        {
+                            if(p.id !== person.id)
+                            {
+                                return p;
+                            }
+                            return person;
+                        }));
+                }
         });
     }
 

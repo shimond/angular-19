@@ -19,16 +19,15 @@ export class PersonListComponent {
   selectedPerson = signal<Person | null>(null);
 
   selectPerson(person: Person) {
-    if (person.name[0] != 'S') {
-      this.selectedPerson.set(person);
-    } else {
-      alert('Person name starts with S. Cannot select');
-      this.selectedPerson.set(null);
-    }
+    this.selectedPerson.set(person);
   }
 
   deletePerson(person: Person) {
     alert(`Deleting ${person.name}`);
     this.state.deletePerson(person);
+  }
+
+  updatePerson(person: Person) {
+    this.state.updateUpdate(person);
   }
 }

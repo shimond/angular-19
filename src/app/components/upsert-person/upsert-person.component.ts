@@ -1,4 +1,4 @@
-import { Component, inject, signal, WritableSignal } from '@angular/core';
+import { Component, effect, inject, input, output, signal, WritableSignal } from '@angular/core';
 import { Person } from '../../models/person.model';
 import { AbstractControl, FormBuilder, FormControl, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { MatInput } from '@angular/material/input'
@@ -17,15 +17,8 @@ export class UpsertPersonComponent {
 
   personTypes = signal(['Employee', 'Customer', 'Admin']);
   emailError = signal<string>('');
-
-  person: WritableSignal<Person> = signal({
-    id: 90,
-    name: 'Name of person',
-    type: 'Employee',
-    birthdate: new Date(),
-    email: 'nameof@gmail.com'
-  });
-
+  person = input.required<Person>();
+  saveClick = output<Person>();
   personForm = inject(FormBuilder).group({
     id: new FormControl<number>(-1),
     name: new FormControl<string>('', [Validators.required]),
@@ -35,7 +28,10 @@ export class UpsertPersonComponent {
   });
 
   constructor() {
-    this.personForm.patchValue(this.person());
+    effect(() => {
+      this.personForm.patchValue(this.person());
+    });
+
     this.personForm.controls.email.valueChanges.subscribe((value) => {
       this.emailError.set('');
       if (this.personForm.controls.email.invalid) {
@@ -68,7 +64,7 @@ export class UpsertPersonComponent {
 
   save() {
     const currentValue = this.personForm.value;
-    this.person.set(currentValue as Person);
+    this.saveClick.emit(currentValue as Person);
   }
 
 
