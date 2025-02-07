@@ -1,6 +1,13 @@
-.container{
+.container {
     padding: 30px;
-    button{
+
+    button {
         margin-top: 20px;
+    }
+
+    .fields-container {
+        display: flex;
+        flex-direction: column;
+        gap:20px;
     }
 }

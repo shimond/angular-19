@@ -1,15 +1,46 @@
 <div class="container">
-    <div>
-        <mat-form-field appearance="outline">
-            <mat-label>Name</mat-label>
-            <input [formControl]="nameField" matInput />
-        </mat-form-field>
-        <div>
-            <pre>{{nameField.errors | json}}</pre>
+    <form [formGroup]="personForm">
+        <div class="fields-container">
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Name</mat-label>
+                    <input formControlName="name" matInput />
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input formControlName="email" matInput /> 
+                    @if(personForm.controls.email.invalid) {
+                    <mat-error>{{emailError()}}</mat-error> } </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Birthdate</mat-label>
+                    <input formControlName="birthdate" matInput [matDatepicker]="picker" />
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Type</mat-label>
+                    <mat-select formControlName="type">
+                        <!-- <mat-option value="Employee">Employee</mat-option>
+                    <mat-option value="Customer">Customer</mat-option> --> @for (type of personTypes(); track type) {
+                        <mat-option [value]="type">{{type}}</mat-option> } </mat-select>
+                </mat-form-field>
+            </div>
         </div>
+    </form>
+    <div>
+        <button mat-raised-button (click)="save()" [disabled]="personForm.invalid">Save</button>
     </div>
-    <div> Current value = {{nameField.value}} </div>
-    <button mat-raised-button (click)="changeToDisable()">Disable input</button>
-    <button mat-raised-button (click)="changeToEnable()">Enable input</button>
-
+    <div>
+        <pre>{{personForm.value | json}}</pre>
+    </div>
+    <hr>
+    <div>
+        <pre>{{person() | json}}</pre>
+    </div>
 </div>
