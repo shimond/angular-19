@@ -17,8 +17,8 @@ export class PersonListComponent {
   listTitle = input<string>('People list');
   people = input.required<Person[]>();
   selectedPerson = signal<Person | null>(null);
-
-  selectPerson(person: Person) {
+  
+  selectPerson(person: Person | null) {
     this.selectedPerson.set(person);
   }
 
@@ -29,5 +29,6 @@ export class PersonListComponent {
 
   updatePerson(person: Person) {
     this.state.updateUpdate(person);
+    this.selectPerson(null);
   }
 }

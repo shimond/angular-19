@@ -17,23 +17,16 @@
     {
       "id": "4",
       "name": "Tikva Cohen",
-      "type": "Employee",
+      "type": "Customer",
       "birthdate": "1995-05-04",
       "email": "tc@gmail.com"
     },
     {
-      "id": "5",
-      "name": "Shimon Levi",
-      "email": "sl@gmail.com",
-      "birthdate": "1975-02-15",
-      "type": "Employee"
-    },
-    {
       "id": "6",
       "name": "Namma Dahan",
-      "email": "Nd@gmail.com",
+      "type": "Employee",
       "birthdate": "1980-12-25",
-      "type": "Customer"
+      "email": "naama@gmail.com"
     }
   ]
 }

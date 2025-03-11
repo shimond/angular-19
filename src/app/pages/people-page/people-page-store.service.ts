@@ -15,10 +15,12 @@ export class PeoplePageStore {
     employees = this.#employees.asReadonly();
     customers = this.#customers.asReadonly();
 
-    
-    init(){
+    refresh(){
         this.#peopleApiService.getEmployees().subscribe(employees => this.#employees.set(employees));
         this.#peopleApiService.getCustomers().subscribe(customers => this.#customers.set(customers));
+    }
+    init(){
+        this.refresh();
     }
 
     deletePerson(person: Person){
@@ -36,27 +38,28 @@ export class PeoplePageStore {
     updateUpdate(person:Person)
     {
         this.#peopleApiService.UpdatePerson(person).subscribe(result=>{
-            if(person.type == 'Employee')
-                {
-                    this.#employees.update(list => list.map(p => 
-                    {
-                        if(p.id !== person.id)
-                        {
-                            return p;
-                        }
-                        return person;
-                    }));
-                }
-                else{
-                    this.#customers.update(list => list.map(p => 
-                        {
-                            if(p.id !== person.id)
-                            {
-                                return p;
-                            }
-                            return person;
-                        }));
-                }
+            this.refresh();
+            // if(person.type == 'Employee')
+            //     {
+            //         this.#employees.update(list => list.map(p => 
+            //         {
+            //             if(p.id !== person.id)
+            //             {
+            //                 return p;
+            //             }
+            //             return result;
+            //         }));
+            //     }
+            //     else{
+            //         this.#customers.update(list => list.map(p => 
+            //             {
+            //                 if(p.id !== person.id)
+            //                 {
+            //                     return p;
+            //                 }
+            //                 return result;
+            //             }));
+            //     }
         });
     }
 
