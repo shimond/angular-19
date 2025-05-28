@@ -48,7 +48,7 @@ export interface Question {
   correctAnswer: string;
   userAnswer?: string;
 }
-
+```
 ### Json example
 ```json
 [
