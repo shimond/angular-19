@@ -1,4 +1,4 @@
-# Angular Exercise – Data Models
+![image](https://github.com/user-attachments/assets/a598c721-8403-4f89-95dd-9a26af4486f4)![image](https://github.com/user-attachments/assets/fdb6ba8a-a9bd-486f-8958-c9235a560fb8)# Angular Exercise – Data Models
 
 ## 🖼️ Exercise Description: Image Gallery
 
@@ -17,4 +17,7 @@ Build an image gallery where each image has the following properties:
 - Handle click events to update the selected image dynamically.
 
 
-![Uploading image.png…]()
+
+
+![ChatGPT Image May 29, 2025, 01_36_16 AM](https://github.com/user-attachments/assets/5871b7a0-0aa0-48f4-bce2-d200622f2228)
+
