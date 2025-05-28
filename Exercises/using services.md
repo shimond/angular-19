@@ -50,7 +50,7 @@ export interface Question {
 }
 
 ### Json example
-```
+```json
 [
   {
     "id": 1,
@@ -83,5 +83,9 @@ export interface Question {
     "correctAnswer": "William Shakespeare"
   }
 ]
-
 ```
+
+![ChatGPT Image May 29, 2025, 01_39_03 AM](https://github.com/user-attachments/assets/a328f564-6696-4461-ba32-a50f05d3c692)
+
+
+
