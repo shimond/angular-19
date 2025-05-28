@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/a598c721-8403-4f89-95dd-9a26af4486f4)![image](https://github.com/user-attachments/assets/fdb6ba8a-a9bd-486f-8958-c9235a560fb8)# Angular Exercise – Data Models
+# Angular Exercise – Data Models
 
 ## 🖼️ Exercise Description: Image Gallery
 
