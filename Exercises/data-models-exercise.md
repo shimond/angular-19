@@ -15,3 +15,6 @@ Build an image gallery where each image has the following properties:
 ### 💡 Tips
 - Use `@Input` to pass image data to components if needed.
 - Handle click events to update the selected image dynamically.
+
+
+![Uploading image.png…]()
