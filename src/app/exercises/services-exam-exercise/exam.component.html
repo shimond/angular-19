@@ -1,0 +1,12 @@
+<div class="exam-container">
+  <app-question-list
+    [questions]="questions()"
+    [selectedId]="selectedId()"
+    (select)="select($event)"></app-question-list>
+
+  <app-question-detail
+    [question]="selectedQuestion()"
+    (answer)="answer($event)"></app-question-detail>
+
+  <div class="score">Score: {{ score() }} / {{ questions().length }}</div>
+</div>
