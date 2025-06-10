@@ -7,7 +7,8 @@ import { AsyncPipe, CommonModule, NgFor, NgIf } from '@angular/common';
   selector: 'app-movie-list',
   standalone: true,
   imports: [CommonModule, AsyncPipe, DurationPipe],
-  templateUrl: './movie-list.component.html'
+  templateUrl: './movie-list.component.html',
+  styleUrl: './movie-list.component.css'
 })
 export class MovieListComponent {
   movies$ = inject(MovieService).getMovies();

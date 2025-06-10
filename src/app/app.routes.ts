@@ -5,8 +5,9 @@ import { TravelFormComponent } from './exercises/forms-exercise/travel-form.comp
 import { MovieListComponent } from './exercises/movie-explorer-exercise/movie-list.component';
 
 export const routes: Routes = [
-  { path: '', component: PeoplePageComponent },
+  { path: 'People', component: PeoplePageComponent },
   { path: 'gallery', component: GalleryComponent },
   { path: 'travel-form', component: TravelFormComponent },
   { path: 'movie-list', component: MovieListComponent },
+  { path: '', redirectTo: 'gallery', pathMatch: 'full' }
 ];

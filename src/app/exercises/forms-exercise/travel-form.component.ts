@@ -1,14 +1,23 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, Validators, ReactiveFormsModule, AbstractControl, ValidationErrors } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-travel-form',
   standalone: true,
-  imports: [ReactiveFormsModule],
-  templateUrl: './travel-form.component.html'
+  imports: [ReactiveFormsModule, MatFormFieldModule, MatButtonModule, MatInputModule,MatSelectModule],
+  templateUrl: './travel-form.component.html',
+  styleUrl: './travel-form.component.css'
 })
 export class TravelFormComponent {
   fb = inject(FormBuilder);
+  countries = signal([
+    'Israel', 'United States', 'Canada', 'United Kingdom', 'France', 'Germany', 'Italy', 'Spain', 'Australia', 'Japan', 'China', 'India', 'Brazil', 'Mexico', 'South Africa'
+  ]);
+
 
   form = this.fb.group({
     name: ['', Validators.required],

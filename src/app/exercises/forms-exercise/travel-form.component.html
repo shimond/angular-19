@@ -1,30 +1,62 @@
 <form [formGroup]="form" (ngSubmit)="submit()">
-  <label>
-    Name
-    <input formControlName="name" />
-  </label>
-  <label>
-    Email
-    <input formControlName="email" />
-  </label>
-  <label>
-    Confirm Email
-    <input formControlName="confirmEmail" />
-  </label>
-  <label>
-    Origin Country
-    <input formControlName="origin" />
-  </label>
-  <label>
-    Destination Country
-    <input formControlName="dest" />
-  </label>
-  <label>
-    Israeli ID Number
-    <input formControlName="israelId" />
-  </label>
-  <button type="submit" [disabled]="form.invalid">Submit</button>
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name" />
+    @if(form.get('name')?.invalid && form.get('name')?.touched) {
+      <mat-error>Name is required</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" />
+    @if(form.get('email')?.invalid && form.get('email')?.touched) {
+      <mat-error>Valid email is required</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Confirm Email</mat-label>
+    <input matInput formControlName="confirmEmail" />
+    @if(form.get('confirmEmail')?.invalid && form.get('confirmEmail')?.touched) {
+      <mat-error>Emails must match</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Origin Country</mat-label>
+    <mat-select formControlName="origin">
+      @for (country of countries(); track country) {
+        <mat-option [value]="country">{{ country }}</mat-option>
+      }
+    </mat-select>
+    @if(form.get('origin')?.invalid && form.get('origin')?.touched) {
+      <mat-error>Origin country is required</mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Destination Country</mat-label>
+    <mat-select formControlName="dest">
+      @for (country of countries(); track country) {
+        <mat-option [value]="country">{{ country }}</mat-option>
+      }
+    </mat-select>
+    @if(form.get('dest')?.invalid && form.get('dest')?.touched) {
+      <mat-error>Destination country is required</mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Israeli ID Number</mat-label>
+    <input matInput formControlName="israelId" />
+    @if(form.get('israelId')?.invalid && form.get('israelId')?.touched) {
+      <mat-error>Israeli ID is required</mat-error>
+    }
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Submit</button>
 </form>
-<div *ngIf="form.invalid && form.touched">
-  Form is invalid
-</div>
+@if(form.invalid && form.touched){
+  <div>
+    Form is invalid
+  </div>
+}
