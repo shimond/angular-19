@@ -1,0 +1,30 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <label>
+    Name
+    <input formControlName="name" />
+  </label>
+  <label>
+    Email
+    <input formControlName="email" />
+  </label>
+  <label>
+    Confirm Email
+    <input formControlName="confirmEmail" />
+  </label>
+  <label>
+    Origin Country
+    <input formControlName="origin" />
+  </label>
+  <label>
+    Destination Country
+    <input formControlName="dest" />
+  </label>
+  <label>
+    Israeli ID Number
+    <input formControlName="israelId" />
+  </label>
+  <button type="submit" [disabled]="form.invalid">Submit</button>
+</form>
+<div *ngIf="form.invalid && form.touched">
+  Form is invalid
+</div>

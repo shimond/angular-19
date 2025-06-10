@@ -1,0 +1,5 @@
+<div *ngFor="let m of movies$ | async" (click)="selectedId = m.id" [ngStyle]="{border: selectedId === m.id ? '2px solid blue' : 'none'}">
+  <img [src]="m.posterImage" width="80" />
+  <div>{{m.title}} - {{m.durationMinutes | duration}}</div>
+  <a [href]="m.imdbLink" target="_blank">IMDB</a>
+</div>
