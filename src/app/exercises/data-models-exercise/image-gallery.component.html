@@ -1,8 +1,16 @@
-<div class="gallery">
-  @for(image of images$ | async; track image.id) {
-    <div class="item">
-      <img [src]="image.url" [alt]="image.description" />
-      <div class="desc">{{ image.description }}</div>
+<div class="gallery-container">
+  @if(selectedImage()) {
+    <div class="selected-image">
+      <img [src]="selectedImage()?.url" [alt]="selectedImage()?.description" />
+      <div class="desc">{{ selectedImage()?.description }}</div>
     </div>
   }
+  <div class="gallery">
+    @for(image of images$ | async; track image.id) {
+      <div class="item" (click)="selectImage(image)">
+        <img [src]="image.url" [alt]="image.description" />
+        <div class="desc">{{ image.description }}</div>
+      </div>
+    }
+  </div>
 </div>
