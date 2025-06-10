@@ -7,7 +7,7 @@
       [class.correct]="q.userAnswer && q.userAnswer === q.correctAnswer"
       [class.incorrect]="q.userAnswer && q.userAnswer !== q.correctAnswer"
       [class.disabled]="disabled()">
-      {{ q.id }}
+      {{ q.questionText }}
     </li>
   }
 </ul>
