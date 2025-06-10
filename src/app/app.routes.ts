@@ -4,10 +4,12 @@ import { GalleryComponent } from './exercises/input-output-exercise/gallery.comp
 import { TravelFormComponent } from './exercises/forms-exercise/travel-form.component';
 import { MovieListComponent } from './exercises/movie-explorer-exercise/movie-list.component';
 import { ExamComponent } from './exercises/services-exam-exercise/exam.component';
+import { ImageGalleryComponent } from './exercises/data-models-exercise/image-gallery.component';
 
 export const routes: Routes = [
   { path: 'People', component: PeoplePageComponent },
   { path: 'gallery', component: GalleryComponent },
+  { path: 'image-gallery', component: ImageGalleryComponent },
   { path: 'travel-form', component: TravelFormComponent },
   { path: 'movie-list', component: MovieListComponent },
   { path: 'exam', component: ExamComponent },

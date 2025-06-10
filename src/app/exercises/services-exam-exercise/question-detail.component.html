@@ -1,18 +1,26 @@
-<div *ngIf="question() as q" class="detail">
-  <h3>{{ q.questionText }}</h3>
-  <div class="options">
-    @for(option of q.options; track option)
-    {
-      <button
-        (click)="choose(option)"
-        [disabled]="!!q.userAnswer || disabled()"
-        [class.selected]="q.userAnswer === option">
-        {{ option }}
-      </button>
+@if(question() as q) {
+  <div class="detail">
+    <h3>{{ q.questionText }}</h3>
+    <div class="options">
+      @for(option of q.options; track option)
+      {
+        <button
+          (click)="choose(option)"
+          [disabled]="!!q.userAnswer || disabled()"
+          [class.selected]="q.userAnswer === option">
+          {{ option }}
+        </button>
+      }
+    </div>
+    @if(q.userAnswer) {
+      <p
+        [class.correct]="q.userAnswer === q.correctAnswer"
+        [class.incorrect]="q.userAnswer !== q.correctAnswer">
+        You answered: {{ q.userAnswer }} - {{ q.userAnswer === q.correctAnswer ? 'Correct' : 'Incorrect' }}
+      </p>
     }
   </div>
-  <p *ngIf="q.userAnswer" [class.correct]="q.userAnswer === q.correctAnswer" [class.incorrect]="q.userAnswer !== q.correctAnswer">
-    You answered: {{ q.userAnswer }} - {{ q.userAnswer === q.correctAnswer ? 'Correct' : 'Incorrect' }}
-  </p>
-</div>
-<div *ngIf="!question()">Select a question</div>
+}
+@else {
+  <div>Select a question</div>
+}
