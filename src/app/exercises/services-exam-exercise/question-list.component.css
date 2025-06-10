@@ -20,3 +20,8 @@
 .question-list li.incorrect {
   border-color: red;
 }
+
+.question-list li.disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}

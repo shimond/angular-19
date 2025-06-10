@@ -16,3 +16,7 @@
 .incorrect {
   color: red;
 }
+
+.options button:disabled {
+  opacity: 0.6;
+}
