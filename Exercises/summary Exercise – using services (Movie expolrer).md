@@ -117,3 +117,6 @@ Create a custom pipe to display movie durations in a human-friendly format (`2h 
   }
 ]
 ```
+
+
+[View Solution](../src/app/exercises/movie-explorer-exercise)

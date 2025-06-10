@@ -27,3 +27,7 @@ You are required to build a form that includes the following fields:
 - Use Angular Reactive Forms or Template-driven Forms
 - Show user-friendly error messages
 - Consider using `FormGroup` and `FormControl` for better validation control
+
+
+
+[View Solution](../src/app/exercises/forms-exercise)

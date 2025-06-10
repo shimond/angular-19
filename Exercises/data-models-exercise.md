@@ -21,3 +21,6 @@ Build an image gallery where each image has the following properties:
 
 ![ChatGPT Image May 29, 2025, 01_36_16 AM](https://github.com/user-attachments/assets/5871b7a0-0aa0-48f4-bce2-d200622f2228)
 
+
+
+[View Solution](../src/app/exercises/data-models-exercise)

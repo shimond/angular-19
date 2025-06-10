@@ -48,3 +48,6 @@ Build a game where the system generates a random RGB color and the user tries to
 
 ### 💡 Tip:
 Use `combineLatest` and `AsyncPipe` to drive the UI.
+
+
+[View Solution](../src/app/exercises/rxjs-exercises)

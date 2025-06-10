@@ -25,3 +25,6 @@ Create a custom pipe that receives a birthdate and returns the age in full years
 
 - Input: `1/1/1983` (assuming current year is 2025)
 - Output: `42`
+
+
+[View Solution](../src/app/exercises/pipes-exercise)
