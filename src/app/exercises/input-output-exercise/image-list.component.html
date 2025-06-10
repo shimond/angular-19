@@ -1,3 +1,6 @@
 <div style="display:flex; gap:8px">
-  <img *ngFor="let img of images" [src]="img" width="60" (click)="selected.emit(img)" style="cursor:pointer" />
+  @for(img of images(); track img)
+  {
+    <img  [src]="img" width="60" (click)="selected.emit(img)" style="cursor:pointer" />
+  }
 </div>

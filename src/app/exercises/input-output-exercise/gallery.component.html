@@ -1,2 +1,6 @@
-<img [src]="selected()" style="width:100%" />
-<app-image-list [images]="images" (selected)="select($event)"></app-image-list>
+<div class="gallery-container">
+  <div class="selected-image">
+    <img [src]="selected()" style="width:100%" />
+  </div>
+  <app-image-list [images]="images()" (selected)="select($event)"></app-image-list>
+</div>

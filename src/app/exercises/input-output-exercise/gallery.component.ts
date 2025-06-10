@@ -1,21 +1,24 @@
 import { Component, signal } from '@angular/core';
 import { ImageListComponent } from './image-list.component';
+import { Image } from '../data-models-exercise/image.model';
 
 @Component({
   selector: 'app-gallery',
   standalone: true,
   imports: [ImageListComponent],
-  templateUrl: './gallery.component.html'
+  templateUrl: './gallery.component.html',
+  styleUrl: './gallery.component.css'
 })
 export class GalleryComponent {
-  images = [
-    'https://placekitten.com/300/200',
-    'https://placekitten.com/301/200',
-    'https://placekitten.com/302/200'
-  ];
-  selected = signal(this.images[0]);
+  images = signal([
+     'https://loremflickr.com/200/200/cat',
+    'https://picsum.photos/200/200?random=2',
+    'https://loremflickr.com/200/200/dog',
+    'https://picsum.photos/200/200?random=4'
+  ])
+  selected = signal(this.images()[0]);
 
-  select(url: string) {
-    this.selected.set(url);
+  select(img :string) {
+    this.selected.set(img);
   }
 }

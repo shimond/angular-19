@@ -35,7 +35,7 @@ export class TravelFormComponent {
     const id = control.value?.toString();
     if (!id || id.length > 9 || !/^[0-9]+$/.test(id)) return { invalidId: true };
     const padded = id.padStart(9, '0');
-    const sum = padded.split('').reduce((acc, num, idx) => {
+    const sum = padded.split('').reduce((acc: number, num: number, idx: number) => {
       let val = (+num) * ((idx % 2) + 1);
       if (val > 9) val -= 9;
       return acc + val;

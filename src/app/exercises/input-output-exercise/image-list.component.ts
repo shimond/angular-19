@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, input, Input, output, Output } from '@angular/core';
 
 @Component({
   selector: 'app-image-list',
@@ -6,6 +6,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   templateUrl: './image-list.component.html'
 })
 export class ImageListComponent {
-  @Input() images: string[] = [];
-  @Output() selected = new EventEmitter<string>();
+  images = input([] as string[]);
+  selected = output<string>();
 }
