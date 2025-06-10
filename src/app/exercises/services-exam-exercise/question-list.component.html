@@ -6,7 +6,7 @@
       [class.selected]="selectedId() === q.id"
       [class.correct]="q.userAnswer && q.userAnswer === q.correctAnswer"
       [class.incorrect]="q.userAnswer && q.userAnswer !== q.correctAnswer">
-      {{ q.id }}
+      {{ q.questionText }}
     </li>
   }
 </ul>
