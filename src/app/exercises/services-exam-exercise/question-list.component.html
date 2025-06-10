@@ -1,0 +1,12 @@
+<ul class="question-list">
+  @for(q of questions(); track q.id)
+  {
+    <li
+      (click)="select.emit(q.id)"
+      [class.selected]="selectedId() === q.id"
+      [class.correct]="q.userAnswer && q.userAnswer === q.correctAnswer"
+      [class.incorrect]="q.userAnswer && q.userAnswer !== q.correctAnswer">
+      {{ q.id }}
+    </li>
+  }
+</ul>

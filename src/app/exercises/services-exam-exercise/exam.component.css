@@ -1,0 +1,9 @@
+.exam-container {
+  display: flex;
+  gap: 16px;
+}
+
+.score {
+  margin-top: 16px;
+  font-weight: bold;
+}

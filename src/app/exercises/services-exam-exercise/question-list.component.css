@@ -1,0 +1,22 @@
+.question-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 120px;
+}
+.question-list li {
+  padding: 4px 8px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+}
+.question-list li.selected {
+  background: #eef;
+}
+.question-list li.correct {
+  border-color: green;
+}
+.question-list li.incorrect {
+  border-color: red;
+}

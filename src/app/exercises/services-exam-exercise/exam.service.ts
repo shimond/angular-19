@@ -1,5 +1,4 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Injectable, computed, signal } from '@angular/core';
 import { Question } from './question.model';
 
 const QUESTIONS: Question[] = [
@@ -9,11 +8,19 @@ const QUESTIONS: Question[] = [
 
 @Injectable({ providedIn: 'root' })
 export class ExamService {
-  #questions = new BehaviorSubject<Question[]>(QUESTIONS);
-  questions$ = this.#questions.asObservable();
+  #questions = signal<Question[]>(QUESTIONS);
+
+  questions = this.#questions.asReadonly();
+
+  score = computed(() =>
+    this.#questions()
+      .filter(q => q.userAnswer && q.userAnswer === q.correctAnswer)
+      .length
+  );
 
   answer(id: number, answer: string) {
-    const updated = this.#questions.value.map(q => q.id === id ? { ...q, userAnswer: answer } : q);
-    this.#questions.next(updated);
+    this.#questions.update(qs =>
+      qs.map(q => (q.id === id ? { ...q, userAnswer: answer } : q))
+    );
   }
 }

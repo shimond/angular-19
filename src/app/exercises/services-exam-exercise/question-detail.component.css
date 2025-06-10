@@ -1,0 +1,18 @@
+.detail {
+  flex: 1;
+}
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+.options button.selected {
+  background: #eef;
+}
+.correct {
+  color: green;
+}
+.incorrect {
+  color: red;
+}
