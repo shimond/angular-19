@@ -12,10 +12,11 @@ import { Question } from './question.model';
 export class QuestionDetailComponent {
   question = input<Question | null>(null);
   answer = output<{ id: number; answer: string }>();
+  disabled = input(false);
 
   choose(option: string) {
     const q = this.question();
-    if (q) {
+    if (q && !this.disabled()) {
       this.answer.emit({ id: q.id, answer: option });
     }
   }

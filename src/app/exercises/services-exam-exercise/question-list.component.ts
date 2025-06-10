@@ -12,5 +12,6 @@ import { Question } from './question.model';
 export class QuestionListComponent {
   questions = input<Question[]>([]);
   selectedId = input<number | null>(null);
+  disabled = input(false);
   select = output<number>();
 }

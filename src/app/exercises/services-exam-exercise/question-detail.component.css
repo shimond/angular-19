@@ -24,7 +24,7 @@
   font-weight: 500;
   color: #1976d2;
   cursor: pointer;
-  transition: 
+  transition:
     background 0.18s,
     border-color 0.18s,
     color 0.18s;
@@ -52,6 +52,32 @@
 .options button:hover:not(.selected):not(.correct):not(.incorrect) {
   background: #f0f7ff;
   border-color: #90caf9;
+}
+
+  background: #e3f0ff;
+  border-color: #1976d2;
+  color: #1976d2;
+}
+
+.options button.correct {
+  border-color: #43a047;
+  background: #e8f5e9;
+  color: #388e3c;
+}
+
+.options button.incorrect {
+  border-color: #e53935;
+  background: #ffebee;
+  color: #b71c1c;
+}
+
+.options button:hover:not(.selected):not(.correct):not(.incorrect) {
+  background: #f0f7ff;
+  border-color: #90caf9;
+}
+
+.options button:disabled {
+  opacity: 0.6;
 }
 
 .correct {

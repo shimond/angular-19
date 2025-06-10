@@ -22,9 +22,13 @@
   font-size: 1.15rem;
   padding: 0.6rem 1.2rem;
   border-radius: 8px;
-  
+
   box-shadow: 0 2px 8px rgba(25, 118, 210, 0.10);
   letter-spacing: 0.5px;
+}
+
+.timer {
+  margin-top: 8px;
 }
 
 @media (max-width: 900px) {

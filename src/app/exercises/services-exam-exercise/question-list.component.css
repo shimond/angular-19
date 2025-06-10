@@ -20,7 +20,7 @@
   font-size: 1.05rem;
   font-weight: 500;
   background: #fff;
-  transition: 
+  transition:
     background 0.18s,
     border-color 0.18s,
     color 0.18s;
@@ -42,6 +42,16 @@
   border-color: #e53935;
   background: #ffebee;
   color: #b71c1c;
+}
+
+.question-list li.disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.question-list li:hover:not(.selected):not(.correct):not(.incorrect) {
+  background: #f0f7ff;
+  border-color: #90caf9;
 }
 
 .question-list li:hover:not(.selected):not(.correct):not(.incorrect) {

@@ -2,10 +2,11 @@
   @for(q of questions(); track q.id)
   {
     <li
-      (click)="select.emit(q.id)"
+      (click)="disabled() ? null : select.emit(q.id)"
       [class.selected]="selectedId() === q.id"
       [class.correct]="q.userAnswer && q.userAnswer === q.correctAnswer"
-      [class.incorrect]="q.userAnswer && q.userAnswer !== q.correctAnswer">
+      [class.incorrect]="q.userAnswer && q.userAnswer !== q.correctAnswer"
+      [class.disabled]="disabled()">
       {{ q.questionText }}
     </li>
   }

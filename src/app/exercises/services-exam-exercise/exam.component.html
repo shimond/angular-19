@@ -2,11 +2,14 @@
   <app-question-list
     [questions]="questions()"
     [selectedId]="selectedId()"
+    [disabled]="examOver()"
     (select)="select($event)"></app-question-list>
 
   <app-question-detail
     [question]="selectedQuestion()"
+    [disabled]="examOver()"
     (answer)="answer($event)"></app-question-detail>
 
   <div class="score">Score: {{ score() }} / {{ questions().length }}</div>
+  <div class="timer">Time left: {{ formattedTime() }}</div>
 </div>
