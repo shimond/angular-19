@@ -1,14 +1,10 @@
 import { Component, inject, signal } from '@angular/core';
-import { CounterComponent } from "./components/counter/counter.component";
-import { PersonListComponent } from "./components/person-list/person-list.component";
-import { Person } from './models/person.model';
+import { RouterOutlet, RouterLink } from '@angular/router';
 import { PeopleApiService } from './services/people-api.service';
-import { PeoplePageComponent } from "./pages/people-page/people-page.component";
-import { UpsertPersonComponent } from "./components/upsert-person/upsert-person.component";
 
 @Component({
   selector: 'app-root',
-  imports: [UpsertPersonComponent, PeoplePageComponent],
+  imports: [RouterOutlet, RouterLink],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
