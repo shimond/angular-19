@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class ImageService {
   #images: Image[] = [
+    
     { id: 1, url: 'https://loremflickr.com/200/200/cat', description: 'Random cat' },
     { id: 2, url: 'https://picsum.photos/200/200?random=2', description: 'Abstract placeholder' },
     { id: 3, url: 'https://loremflickr.com/200/200/dog', description: 'Random dog' },
