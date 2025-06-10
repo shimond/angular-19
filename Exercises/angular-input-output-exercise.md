@@ -17,3 +17,6 @@ Build an image gallery application with the following layout:
 ### 🎬 Bonus Features
 - Add a "Play" button to cycle through images automatically every 5 seconds
 - Add a "Pause" button to stop the auto-play
+
+
+[View Solution](../src/app/exercises/input-output-exercise)
