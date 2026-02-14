@@ -1,5 +1,5 @@
 import { Component, computed, inject, signal, effect, OnDestroy } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { ExamService } from './exam.service';
 import { QuestionListComponent } from './question-list.component';
 import { QuestionDetailComponent } from './question-detail.component';
@@ -7,7 +7,7 @@ import { QuestionDetailComponent } from './question-detail.component';
 @Component({
   selector: 'app-exam',
   standalone: true,
-  imports: [CommonModule, QuestionListComponent, QuestionDetailComponent],
+  imports: [QuestionListComponent, QuestionDetailComponent],
   templateUrl: './exam.component.html',
   styleUrl: './exam.component.css'
 })

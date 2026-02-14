@@ -1,7 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { MovieService } from './movie.service';
 import { DurationPipe } from './duration.pipe';
-import { AsyncPipe, CommonModule, NgFor, NgIf } from '@angular/common';
+import { AsyncPipe, CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-movie-list',

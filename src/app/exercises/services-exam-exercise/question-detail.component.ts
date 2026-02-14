@@ -1,11 +1,11 @@
 import { Component, input, output } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { Question } from './question.model';
 
 @Component({
   selector: 'app-question-detail',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './question-detail.component.html',
   styleUrl: './question-detail.component.css'
 })
