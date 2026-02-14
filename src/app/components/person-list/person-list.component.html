@@ -1,5 +1,6 @@
 <h2>{{listTitle()}} ({{people().length}})</h2>
 
+
 <div class="people-list">
      @for(person of people(); track person.id) { 
         <app-person-item [person]="person" (personClick)="selectPerson($event)"

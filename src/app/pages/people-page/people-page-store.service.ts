@@ -39,27 +39,6 @@ export class PeoplePageStore {
     {
         this.#peopleApiService.UpdatePerson(person).subscribe(result=>{
             this.refresh();
-            // if(person.type == 'Employee')
-            //     {
-            //         this.#employees.update(list => list.map(p => 
-            //         {
-            //             if(p.id !== person.id)
-            //             {
-            //                 return p;
-            //             }
-            //             return result;
-            //         }));
-            //     }
-            //     else{
-            //         this.#customers.update(list => list.map(p => 
-            //             {
-            //                 if(p.id !== person.id)
-            //                 {
-            //                     return p;
-            //                 }
-            //                 return result;
-            //             }));
-            //     }
         });
     }
 

@@ -1,4 +1,4 @@
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, linkedSignal } from '@angular/core';
 import { Person } from '../models/person.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
