@@ -10,15 +10,6 @@ import { CounetStore } from '../../store/counter-store';
 export class CounterComponent {
 
   store = inject(CounetStore);
-  value = this.store.value;
-
-  increment() {
-    this.store.increment();
-  }
-  decrement() {
-    this.store.decrement();
-  }
-
   constructor() {
   }
 

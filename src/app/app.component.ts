@@ -13,7 +13,7 @@ export class AppComponent {
 
   #peopleApiService = inject(PeopleApiService);
   store = inject(CounetStore);
-  counterValue = this.store.value;
+  //counterValue = this.store.value;
   arr = signal([1]);
 
   addItem() {
