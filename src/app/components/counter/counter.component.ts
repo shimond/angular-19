@@ -12,6 +12,7 @@ export class CounterComponent {
 
   store = inject(CounterSignalStore);
   constructor() {
+    
   }
 
 }
