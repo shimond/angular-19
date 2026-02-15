@@ -2,6 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet, RouterLink } from '@angular/router';
 import { PeopleApiService } from './services/people-api.service';
 import { CounetStore } from './store/counter-store';
+import { CounterSignalStore } from './store/counter-signal-store';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,7 @@ import { CounetStore } from './store/counter-store';
 export class AppComponent {
 
   #peopleApiService = inject(PeopleApiService);
-  store = inject(CounetStore);
+  store = inject(CounterSignalStore);
   //counterValue = this.store.value;
   arr = signal([1]);
 

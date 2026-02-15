@@ -1,5 +1,6 @@
 import { Component, computed, effect, inject, signal } from '@angular/core';
 import { CounetStore } from '../../store/counter-store';
+import { CounterSignalStore } from '../../store/counter-signal-store';
 
 @Component({
   selector: 'app-counter',
@@ -9,7 +10,7 @@ import { CounetStore } from '../../store/counter-store';
 })
 export class CounterComponent {
 
-  store = inject(CounetStore);
+  store = inject(CounterSignalStore);
   constructor() {
   }
 
