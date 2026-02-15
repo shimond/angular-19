@@ -1,4 +1,5 @@
-import { Component, computed, effect, signal } from '@angular/core';
+import { Component, computed, effect, inject, signal } from '@angular/core';
+import { CounetStore } from '../../store/counter-store';
 
 @Component({
   selector: 'app-counter',
@@ -7,22 +8,18 @@ import { Component, computed, effect, signal } from '@angular/core';
   styleUrl: './counter.component.scss'
 })
 export class CounterComponent {
-  //signal, (), update, set, effect
-  value = signal(0);
-  value2 = computed(() => this.value() * 2);
 
-  constructor() {
-    effect(()=>{
-      console.log('Value changed to:', this.value());
-      sessionStorage.setItem('value', this.value().toString());
-    });    
-  }
+  store = inject(CounetStore);
+  value = this.store.value;
 
   increment() {
-    this.value.update(current => current + 1);
+    this.store.increment();
+  }
+  decrement() {
+    this.store.decrement();
   }
 
-  decrement() {
-    this.value.update(current => current - 1);
+  constructor() {
   }
+
 }

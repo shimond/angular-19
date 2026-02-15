@@ -9,7 +9,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 @Component({
   selector: 'app-upsert-person',
-  imports: [ReactiveFormsModule, MatInput, MatFormFieldModule, MatButtonModule, JsonPipe, MatSelectModule, MatDatepickerModule],
+  imports: [ReactiveFormsModule, MatInput, MatFormFieldModule, MatButtonModule, MatSelectModule, MatDatepickerModule],
   templateUrl: './upsert-person.component.html',
   styleUrl: './upsert-person.component.scss'
 })

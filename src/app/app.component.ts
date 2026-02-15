@@ -1,6 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet, RouterLink } from '@angular/router';
 import { PeopleApiService } from './services/people-api.service';
+import { CounetStore } from './store/counter-store';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,8 @@ import { PeopleApiService } from './services/people-api.service';
 export class AppComponent {
 
   #peopleApiService = inject(PeopleApiService);
+  store = inject(CounetStore);
+  counterValue = this.store.value;
   arr = signal([1]);
 
   addItem() {

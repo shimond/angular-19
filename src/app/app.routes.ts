@@ -5,9 +5,11 @@ import { TravelFormComponent } from './exercises/forms-exercise/travel-form.comp
 import { MovieListComponent } from './exercises/movie-explorer-exercise/movie-list.component';
 import { ExamComponent } from './exercises/services-exam-exercise/exam.component';
 import { ImageGalleryComponent } from './exercises/data-models-exercise/image-gallery.component';
+import { CounterPageComponent } from './counter-page/counter-page.component';
 
 export const routes: Routes = [
   { path: 'People', component: PeoplePageComponent },
+  { path: 'Counter', component: CounterPageComponent },
   { path: 'gallery', component: GalleryComponent },
   { path: 'image-gallery', component: ImageGalleryComponent },
   { path: 'travel-form', component: TravelFormComponent },
