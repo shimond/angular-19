@@ -22,12 +22,17 @@ export const CounterSignalStore = signalStore({ providedIn: 'root' },
         init: () => {
             console.log('My Store init');
         },
-        increment: async () => {
-            patchState(store, { isLoading: true });
-            store._myConsole.logIt('Logging from increment');
-            const newCounterValue = await store._counterApi.increment(store.value());
-            patchState(store, { value: newCounterValue, isLoading: false });
-        },
+        increment: rxMethod<void>(p$ => p$.pipe(
+            tap(() => patchState(store, { isLoading: true })),
+            concatMap(() => store._counterApi.increment(store.value())),
+            tap((newValue) => patchState(store, { value: newValue, isLoading: false })),
+        )),
+        // increment: async () => {
+        //     patchState(store, { isLoading: true });
+        //     store._myConsole.logIt('Logging from increment');
+        //     const newCounterValue = await store._counterApi.increment(store.value());
+        //     patchState(store, { value: newCounterValue, isLoading: false });
+        // },
         decrement: async () => {
             patchState(store, { isLoading: true });
             store._myConsole.logIt('Logging from decrement');
