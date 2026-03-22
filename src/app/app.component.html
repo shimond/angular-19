@@ -9,5 +9,8 @@
   <a routerLink="/exam">Exam</a> |
   <a routerLink="/movie-list">Movies</a>
 </nav>
+@if(store.isLoading()){
+  <h2>Loading...</h2>
+}
 
 <router-outlet></router-outlet>
