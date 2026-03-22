@@ -3,14 +3,15 @@ import { patchState, signalStore, withState, withMethods, withComputed, withProp
 import { rxMethod } from '@ngrx/signals/rxjs-interop'
 import { MyConsoleService } from '../services/my-console.service';
 import { CounterApiService } from '../services/counter-api.service';
-import { concatMap, delay, of, switchMap, tap } from 'rxjs';
+import { catchError, concatMap, delay, EMPTY, Observable, of, switchMap, tap } from 'rxjs';
 
 export interface CounterState {
     value: number;
     isLoading: boolean;
+    error: string | null;
 }
 
-const INIT_STATE: CounterState = { value: 0, isLoading: false };
+const INIT_STATE: CounterState = { value: 0, isLoading: false, error: null };
 
 export const CounterSignalStore = signalStore({ providedIn: 'root' },
     withState(INIT_STATE),
@@ -22,23 +23,34 @@ export const CounterSignalStore = signalStore({ providedIn: 'root' },
         init: () => {
             console.log('My Store init');
         },
+        setValueOld: (newValue: number) => {
+            patchState(store, { value: newValue });
+        },
+        setValue: rxMethod<number>((newValue$) => newValue$.pipe(
+            tap(newVal => patchState(store, { value: newVal }))
+        )),
         increment: rxMethod<void>(p$ => p$.pipe(
             tap(() => patchState(store, { isLoading: true })),
-            concatMap(() => store._counterApi.increment(store.value())),
+            switchMap(() => store._counterApi.increment(store.value()).pipe(tap((newValue) => {
+                if (newValue == 7) {
+                    throw new Error('Value is 7');
+                }
+            }),
+                catchError((err) => {
+                    patchState(store, {
+                        isLoading: false,
+                        error: err instanceof Error ? err.message : 'Unknown error',
+                    });
+
+                    return EMPTY;
+                }))),
             tap((newValue) => patchState(store, { value: newValue, isLoading: false })),
         )),
-        // increment: async () => {
-        //     patchState(store, { isLoading: true });
-        //     store._myConsole.logIt('Logging from increment');
-        //     const newCounterValue = await store._counterApi.increment(store.value());
-        //     patchState(store, { value: newCounterValue, isLoading: false });
-        // },
-        decrement: async () => {
-            patchState(store, { isLoading: true });
-            store._myConsole.logIt('Logging from decrement');
-            const newCounterValue = await store._counterApi.decrement(store.value());
-            patchState(store, { value: newCounterValue, isLoading: false });
-        },
+        decrement: rxMethod<void>(p$ => p$.pipe(
+            tap(() => patchState(store, { isLoading: true })),
+            switchMap(() => store._counterApi.decrement(store.value())),
+            tap((newValue) => patchState(store, { value: newValue, isLoading: false })),
+        )),
     })),
     withComputed((store) => ({
         value2: computed(() => store.value() * 2)
@@ -48,7 +60,6 @@ export const CounterSignalStore = signalStore({ providedIn: 'root' },
             store.init();
         },
         onDestroy: () => {
-
         }
     }))
 );

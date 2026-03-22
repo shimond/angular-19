@@ -1,8 +1,6 @@
-import { Component, inject, OnDestroy, signal } from '@angular/core';
-import { PeopleApiService } from '../../services/people-api.service';
-import { Person } from '../../models/person.model';
+import { Component, inject } from '@angular/core';
 import { PersonListComponent } from "../../components/person-list/person-list.component";
-import { PeoplePageStore } from './people-page-store.service';
+import { PeoplePageSignalStore } from './people-page-signal-store';
 
 @Component({
   selector: 'app-people-page',
@@ -12,10 +10,8 @@ import { PeoplePageStore } from './people-page-store.service';
 })
 export class PeoplePageComponent  {
 
-  state = inject(PeoplePageStore);  
-  
+  store = inject(PeoplePageSignalStore)
   constructor() {
-    this.state.init();
   }
 
  

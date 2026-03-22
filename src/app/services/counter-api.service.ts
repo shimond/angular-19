@@ -1,18 +1,19 @@
 import { Injectable } from "@angular/core";
+import { delay, Observable, of, Subject } from "rxjs";
 
 @Injectable({ providedIn: 'root' })
 export class CounterApiService {
 
-  async increment(value: number): Promise<number> {
-    const delay = Math.random() > 0.5 ? 1500 : 500;
+  increment(value: number): Observable<number> {
+    const delayTimeout = Math.random() > 0.5 ? 1500 : 500;
     console.log('CounterApiService parameter ' + value);
-    await new Promise(resolve => setTimeout(resolve, delay));
-    return value + 1;
+    return of(value + 1).pipe(delay(delayTimeout));
   }
 
-  async decrement(value: number): Promise<number> {
-    const delay = Math.random() > 0.5 ? 1500 : 500;
-    await new Promise(resolve => setTimeout(resolve, delay));
-    return value - 1;
+  decrement(value: number): Observable<number> {
+    const delayTimeout = Math.random() > 0.5 ? 1500 : 500;
+    console.log('CounterApiService parameter ' + value);
+    return of(value - 1).pipe(delay(delayTimeout));
   }
+
 }

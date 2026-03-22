@@ -2,10 +2,10 @@
   "users": [
     {
       "id": "1",
-      "name": "John Cohen2",
+      "name": "Shimon dahan123123",
       "type": "Employee",
-      "birthdate": "1991-10-01T10:00:00.000Z",
-      "email": "jc@gmail.2com"
+      "birthdate": "1983-11-04T10:00:00.000Z",
+      "email": "Sdahan@jbh.co.il"
     },
     {
       "id": "2",
@@ -13,20 +13,6 @@
       "type": "Customer",
       "birthdate": "2005-11-17T10:00:00.000Z",
       "email": "Jd@gmai2l.com"
-    },
-    {
-      "id": "4",
-      "name": "Tikva Cohen",
-      "type": "Customer",
-      "birthdate": "1995-05-04",
-      "email": "tc@gmail.com"
-    },
-    {
-      "id": "6",
-      "name": "Namma Dahan2",
-      "type": "Employee",
-      "birthdate": "1980-12-25",
-      "email": "naama@gmail.com"
     }
   ]
 }
